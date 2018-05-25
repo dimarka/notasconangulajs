@@ -1,12 +1,36 @@
 <!DOCTYPE html>
 <html ng-app='myApp'>
 <head>
-    <title></title>
+    <link href="https://fonts.googleapis.com/css?family=Courgette" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Arima+Madurai" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Song+Myung" rel="stylesheet">
+    <title>Notasangularjs</title>
     
     <style>
-    .rojo{
+    .titulo{
+        
+        font-family: 'Courgette', cursive;
        color: red; 
     }
+   p{
+    font-family: 'Arima Madurai', cursive;
+    font-size: 20px;
+   }
+   h5{
+    font-family: 'Song Myung', serif;
+   }
+   .button {
+    border: none;
+    background: #3a7999;
+    color: #f2f2f2;
+    padding: 10px;
+    font-size: 18px;
+    border-radius: 5px;
+    position: relative;
+    box-sizing: border-box;
+}
+
+
     </style>
 	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.10/angular.min.js"></script>
 	<!--Controllers-->
@@ -17,16 +41,18 @@
 <body ng-app='myApp' ng-controller="testController">
 
     <!-- botones -->
-	<input type="submit" value="Desplegar notas" ng-click="getAllPosts()"/>
+    <input type="submit" class="button" value="Desplegar notas" ng-click="getAllPosts()"/>
+        <!-- boton a prueba
 	<input type="submit" value="Buscar una nota" ng-click="getPost()"/>
     <input type="text" ng-model="post_id" placeholder="inserte el id de la nota"/>
+    -->
     <!-- contenido Primer Boton-->
 	<div ng-if="Pexist==1">
-		<h1>Lista de notas</h1>
+		<h1>Notas Desplegadas</h1>
 		<div ng-repeat="p in postse">
 			<pre>
-				<h5> nota #  {{$index + 1}}</h5>
-				<h2 class="rojo">{{p.fields.titulo.stringValue}}</h2>
+				<h5> Nota #  {{$index + 1}}</h5>
+				<h2 class="titulo">{{p.fields.titulo.stringValue}}</h2>
 				<p>{{p.fields.contenido.stringValue}}</p>
 			</pre>
 			<hr/>
@@ -36,7 +62,7 @@
 	<div ng-if="Pexist==2">
 		<h1>Una solo nota</h1>
 		<pre>
-			<h5> nota # $index</h5>
+			<h5> Nota # $index</h5>
 			<h2>{{unPost.titulo}}</h2>
 			<p>{{unPost.contenido}}</p>
 		</pre>
