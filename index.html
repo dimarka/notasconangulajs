@@ -17,15 +17,15 @@
 <body ng-app='myApp' ng-controller="testController">
 
     <!-- botones -->
-	<input type="submit" value="Todos los posts" ng-click="getAllPosts()"/>
-	<input type="submit" value="Un post" ng-click="getPost()"/>
-    <input type="text" ng-model="post_id" placeholder="inserte el id del post"/>
+	<input type="submit" value="Desplegar notas" ng-click="getAllPosts()"/>
+	<input type="submit" value="Buscar una nota" ng-click="getPost()"/>
+    <input type="text" ng-model="post_id" placeholder="inserte el id de la nota"/>
     <!-- contenido Primer Boton-->
 	<div ng-if="Pexist==1">
-		<h1>Lista de Posts</h1>
+		<h1>Lista de notas</h1>
 		<div ng-repeat="p in postse">
 			<pre>
-				<h5> Post #  {{$index + 1}}</h5>
+				<h5> nota #  {{$index + 1}}</h5>
 				<h2 class="rojo">{{p.fields.titulo.stringValue}}</h2>
 				<p>{{p.fields.contenido.stringValue}}</p>
 			</pre>
@@ -34,9 +34,9 @@
     </div>
     <!-- fin contenido primer, inicio segundo-->
 	<div ng-if="Pexist==2">
-		<h1>Un solo post</h1>
+		<h1>Una solo nota</h1>
 		<pre>
-			<h5> Post # $index</h5>
+			<h5> nota # $index</h5>
 			<h2>{{unPost.titulo}}</h2>
 			<p>{{unPost.contenido}}</p>
 		</pre>
