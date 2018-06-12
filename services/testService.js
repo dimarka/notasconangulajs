@@ -1,12 +1,12 @@
 angular.module('testService', [])//Declaramos el modulo
 	.factory('testRequest', function($http) { //declaramos la factory
 
-		path = 'https://firestore.googleapis.com/v1beta1/projects/notas-609ff/databases/(default)/documents/'
+		path = 'http://dzdigital.co/prueba/wp-json/wp/v2/notas/'
 		return  {
 			//primer boton
             posts : function(){ //Retornara la lista de notas
                 
-                global = $http.get(path+'notas');
+                global = $http.get(path);
                 console.log(global);
                 return global;
                     
