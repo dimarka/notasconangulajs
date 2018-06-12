@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html ng-app='myApp'>
+<meta charset="utf-8">
 <head>
     <link href="https://fonts.googleapis.com/css?family=Courgette" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Arima+Madurai" rel="stylesheet">
@@ -42,55 +43,23 @@ h1{
 	<script type="text/javascript" src="controllers/testController.js"></script>
 	<!--Services-->
 	<script type="text/javascript" src="services/testService.js"></script>
+	
 </head>
 <body ng-app='myApp' ng-controller="testController">
 
-    <!-- botones -->
-    <input type="submit" class="button" value="Desplegar notas" ng-click="getAllPosts()"/>
-        <!-- boton a prueba
-	<input type="submit" value="Buscar una nota" ng-click="getPost()"/>
-    <input type="text" ng-model="post_id" placeholder="inserte el id de la nota"/>
-    -->
-    <!-- contenido Primer Boton-->
+    <div id="content" ng-controller="getAllPosts"/>
+   
 	<div ng-if="Pexist==1">
-		<h1>Notas Desplegadas</h1>
-		<div ng-repeat="p in postse">
+		<h1>Notas De Wordpress</h1>
+		<div ng-repeat="p in posts" >
 			<pre>
-				<h5> Nota #  {{$index + 1}}</h5>
-				<h2 class="titulo">{{p.fields.titulo.stringValue}}</h2>
-				<p>{{p.fields.contenido.stringValue}}</p>
+				<h2 class="titulo">{{p.title.rendered}}</h2>
+				<p>{{p.content.rendered | removehtml }}</p>
 			</pre>
 			<hr/>
 		</div>
     </div>
-    <!-- fin contenido primer, inicio segundo-->
-	<div ng-if="Pexist==2">
-		<h1>Una solo nota</h1>
-		<pre>
-			<h5> Nota # $index</h5>
-			<h2>{{unPost.titulo}}</h2>
-			<p>{{unPost.contenido}}</p>
-		</pre>
-		<hr/>
-    </div>
-    <!-- fin contenido segundo -->
-    <script src="https://www.gstatic.com/firebasejs/4.11.0/firebase.js"></script>
-<script src="https://www.gstatic.com/firebasejs/4.11.0/firebase-firestore.js"></script>
-<script>
-  // Initialize Firebase
-  var config = {
-    apiKey: "AIzaSyBQQLp0S1T5x5WGZsEc5utTgHYJilf1ccQ",
-    authDomain: "notas-609ff.firebaseapp.com",
-    databaseURL: "https://notas-609ff.firebaseio.com",
-    projectId: "notas-609ff",
-    storageBucket: "notas-609ff.appspot.com",
-    messagingSenderId: "972706576684"
-  };
+    
 
-
-  firebase.initializeApp(config);
-
-  var db = firebase.firestore();
-</script>
 </body>
 </html>
