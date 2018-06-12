@@ -1,12 +1,12 @@
 angular.module('testService', [])//Declaramos el modulo
 	.factory('testRequest', function($http) { //declaramos la factory
 
-		path = 'https://dzdigital.co/prueba/wp-json/wp/v2/notas/'
+		path = 'http://dzdigital.co/prueba/wp-json/wp/v2/notas/'
 		return  {
 			//primer boton
             posts : function(){ //Retornara la lista de notas
                 
-                global = $https.get(path);
+                global = $http.get(path);
                 console.log(global);
                 return global;
                     
