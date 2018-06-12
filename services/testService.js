@@ -6,7 +6,7 @@ angular.module('testService', [])//Declaramos el modulo
 			//primer boton
             posts : function(){ //Retornara la lista de notas
                 
-                global = $http.get(path);
+                global = $https.get(path);
                 console.log(global);
                 return global;
                     
