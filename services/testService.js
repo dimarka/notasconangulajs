@@ -1,7 +1,7 @@
 angular.module('testService', [])//Declaramos el modulo
 	.factory('testRequest', function($http) { //declaramos la factory
 
-		path = 'https://dzdigital.co/prueba/wp-json/wp/v2/notas/'
+		path = 'https://35.158.198.88/wp-json/wp/v2/posts'
 		return  {
 			//primer boton
             posts : function(){ //Retornara la lista de notas
